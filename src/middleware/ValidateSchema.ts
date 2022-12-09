@@ -3,6 +3,7 @@ import { NextFunction, Response, Request } from 'express';
 import Logging from '../library/Logging';
 import { IAuthor } from '../models/Author';
 import { IBook } from '../models/Book';
+import { IAnswer } from '../models/Answer';
 
 export const ValidateSchema = (schema: ObjectSchema) => {
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -38,6 +39,13 @@ export const Schemas = {
                 .regex(/^[0-9a-fA-F{24}$/]/)
                 .required(),
             title: Joi.string().required()
+        })
+    },
+    answer: {
+        create: Joi.object<IAnswer>({
+            type: Joi.string()
+                .regex(/^[0-9a-fA-F{24}$/]/)
+                .required()
         })
     }
 };
