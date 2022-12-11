@@ -6,6 +6,7 @@ import { config } from './config/config';
 import Logging from './library/Logging';
 import authorRoutes from './routes/Author';
 import bookRoutes from './routes/Book';
+import surveyRoutes from './routes/Survey';
 
 const router = express();
 
@@ -53,6 +54,7 @@ const StartServer = () => {
     /** Routes */
     router.use('/authors', authorRoutes);
     router.use('/books', bookRoutes);
+    router.use('/api/v1/survey', surveyRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'Pinged!' }));
