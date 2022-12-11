@@ -8,6 +8,7 @@ interface IRelationships {
 }
 interface ISurveyData {
     type: string;
+    id: string;
 }
 export interface IAnswer {
     type: string;
